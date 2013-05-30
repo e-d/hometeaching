@@ -1,0 +1,27 @@
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui" xmlns:widgets="urn:import:com.edwardstlouis.client.widgets">
+	<g:HTMLPanel ui:field="page">
+		<div class="reset-position-absolute">
+			<div class="expanding-logo">
+				<span class="expanding-logo-left"></span>
+				<span class="expanding-logo-image"><a class="image-link" href="http://rcchometeaching.appspot.com"></a></span>
+				<span class="expanding-logo-right">
+					<g:HorizontalPanel ui:field="menuButtonsPanel" styleName="menu-button-panel">
+						<g:Anchor ui:field="visitsLink" href="#home:visits" styleName="button left">Report Visits</g:Anchor>
+						<g:Anchor ui:field="eventsLink" href="#home:events" styleName="button middle">View Events and Announcements</g:Anchor>
+						<g:Anchor ui:field="contactUsLink" href="#home:contactUs" styleName="button right">Contact Presidency</g:Anchor>
+					</g:HorizontalPanel>
+				</span>
+			</div>
+		</div>
+		<g:FlowPanel ui:field="localeAndUserInfo" styleName="locale-user-info">
+			<g:HTMLPanel ui:field="loginForm">
+				<widgets:LoginWidget ui:field="login"></widgets:LoginWidget>
+			</g:HTMLPanel>
+			<g:HTMLPanel ui:field="loginInfo" styleName="nodisplay">
+				<g:Label text="user email" ui:field="userEmail" styleName="inline-display small-text"/>
+				<g:Anchor ui:field="logoutLink" href="#">[Logout]</g:Anchor>
+				<g:Label text="company name" ui:field="companyName" styleName="small-text"/>
+			</g:HTMLPanel>
+		</g:FlowPanel>
+	</g:HTMLPanel>
+</ui:UiBinder>
