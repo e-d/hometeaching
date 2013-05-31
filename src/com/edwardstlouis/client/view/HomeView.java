@@ -2,6 +2,7 @@ package com.edwardstlouis.client.view;
 
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.ui.IsWidget;
+import com.google.gwt.user.client.ui.Widget;
 
 public interface HomeView extends IsWidget {
 	
@@ -12,4 +13,6 @@ public interface HomeView extends IsWidget {
 	}
 
 	void setSection(String section);
+
+	void removeMeAnimated(Widget w);
 }

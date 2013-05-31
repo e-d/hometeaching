@@ -2,8 +2,9 @@ package com.edwardstlouis.client.view.impl;
 
 import com.edwardstlouis.client.ClientFactory;
 import com.edwardstlouis.client.view.HomeView;
+import com.edwardstlouis.client.widgets.AssignmentWidget;
+import com.edwardstlouis.client.widgets.DissolveAnimation;
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -90,10 +91,28 @@ public class HomeViewImpl extends Composite implements HomeView {
 			@Override
 			public void run() {
 				stopWaitSpinner();
-				contentHolder.add(new HTML("<br/>Content for section: " + section));
+				contentHolder.add(new AssignmentWidget(clientFactory, HomeViewImpl.this));
 			}
 		};
 		t.schedule(200);
 	}
+
+	@Override
+	public void removeMeAnimated(final Widget w) {
+		// Update the color.
+		w.removeStyleName("background-yellow");
+		w.addStyleName("background-green");
+
+		// Remove the widget.
+		DissolveAnimation.fadeOut(w, 500);
+		Timer t = new Timer() {
+			@Override
+			public void run() {
+				contentHolder.remove(w);
+			}
+		};
+		t.schedule(501);
+	}
+
 
 }
