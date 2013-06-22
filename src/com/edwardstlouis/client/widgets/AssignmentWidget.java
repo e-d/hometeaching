@@ -13,15 +13,16 @@ import com.edwardstlouis.client.view.HomeView;
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style.TextAlign;
 import com.google.gwt.event.dom.client.ClickEvent;
+import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.HTMLPanel;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.requestfactory.shared.Receiver;
@@ -39,7 +40,8 @@ public class AssignmentWidget extends Composite {
 	@UiField TextArea comments;
 	@UiField Button saveButton;
 	@UiField HTML family;
-	@UiField CheckBox visited;
+	@UiField RadioButton visitedYes;
+	@UiField RadioButton visitedNo;
 
 
 	interface AssignmentWidgetUiBinder extends UiBinder<Widget, AssignmentWidget> {
@@ -58,6 +60,30 @@ public class AssignmentWidget extends Composite {
 		renewAssignmentRequest();
 	}
 	
+	@UiHandler("visitedYes")
+	void onVisitedYesSelect(ClickEvent e) {
+	    radioClick();
+	}
+
+	@UiHandler("visitedNo")
+	void onVisitedNoSelect(ClickEvent e) {
+	    radioClick();
+	}
+	
+    private void radioClick() {
+        widget.removeStyleName("background-yellow");
+	    widget.removeStyleName("background-green");
+	    widget.removeStyleName("background-red");
+	    if (visitedYes.getValue()) {
+	        widget.addStyleName("background-green");
+	    } else if (visitedNo.getValue()) {
+	        widget.addStyleName("background-red");
+	    } else {
+	        widget.addStyleName("background-yellow");
+	    }
+    }
+	
+	
 	@Override
 	protected void onLoad() {
 	}
@@ -71,7 +97,6 @@ public class AssignmentWidget extends Composite {
 		this.t = t;
 		renewAssignmentRequest();
 		family.setText("St Louis, Ed and Laura");
-		visited.setValue(false);
 		comments.setValue("");
 		
 		

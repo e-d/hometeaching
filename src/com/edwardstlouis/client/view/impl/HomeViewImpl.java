@@ -78,23 +78,32 @@ public class HomeViewImpl extends Composite implements HomeView {
 	@Override
 	public void setSection(final String section) {
 		sectionName.clear();
+		contentHolder.clear();
 		if ("contactUs".equals(section)) {
+		    stopWaitSpinner();
 			sectionName.add(new HTML("Contact the Elders Quorumn Presidency"));
+			contentHolder.add(new HTML("<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
+			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
+			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
+			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
+			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>"));
 		} else if ("events".equals(section)) {
+		    stopWaitSpinner();
 			sectionName.add(new HTML("Events and Announcements"));
+			contentHolder.add(new HTML("No new announcements."));
 		} else {
-			sectionName.add(new HTML("Report on Your Visits"));
+			sectionName.add(new HTML("Report on Your Home Teaching Visits"));
+			startWaitSpinner();
+			Timer t = new Timer() {
+			    @Override
+			    public void run() {
+			        stopWaitSpinner();
+			        contentHolder.add(new AssignmentWidget(clientFactory, HomeViewImpl.this));
+			    }
+			};
+			t.schedule(200);
 		}
 		
-		startWaitSpinner();
-		Timer t = new Timer() {
-			@Override
-			public void run() {
-				stopWaitSpinner();
-				contentHolder.add(new AssignmentWidget(clientFactory, HomeViewImpl.this));
-			}
-		};
-		t.schedule(200);
 	}
 
 	@Override

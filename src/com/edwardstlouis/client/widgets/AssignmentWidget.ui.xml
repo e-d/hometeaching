@@ -2,19 +2,23 @@
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder" xmlns:g="urn:import:com.google.gwt.user.client.ui">
 	<g:HTMLPanel ui:field="widget" styleName="key-color">
 		<g:HorizontalPanel width="100%">
-			<g:HTMLPanel width="100%" styleName="margin-left-right">
+            <g:HTML styleName="rotate month">
+                MAR '13
+            </g:HTML>
+			<g:HTMLPanel width="100%" styleName="margin-left-right extra-left-margin">
 				<g:HTML styleName="small-text">Assigned Family:</g:HTML>
 				<g:HTML ui:field="family">St. Louis, Ed and Laura</g:HTML>
 			</g:HTMLPanel>
 			<g:HTMLPanel width="100%" styleName="margin-left-right">
 				<g:HTML styleName="small-text">Visited?</g:HTML>
-				<g:CheckBox ui:field="visited"></g:CheckBox>
+                <g:RadioButton ui:field="visitedYes" name="radioVisited" text="Yes"></g:RadioButton>
+                <g:RadioButton name="radioVisited" text="No" ui:field="visitedNo"/>
 			</g:HTMLPanel>
 			<g:HTMLPanel width="100%" styleName="margin-left-right">
 				<g:HTML styleName="small-text">Comments (optional):</g:HTML>
-				<g:TextArea styleName="resize-vertical" text="Comments" ui:field="comments" width="90%"/>
+				<g:TextArea styleName="resize-vertical" text="Comments" ui:field="comments" width="88%"/>
 			</g:HTMLPanel>
-			<g:Button styleName="accept-button" ui:field="saveButton">
+			<g:Button width="100%" styleName="accept-button" ui:field="saveButton">
 				Save
 			</g:Button>
 		</g:HorizontalPanel>

@@ -3,7 +3,11 @@
 		<div class="reset-position-absolute">
 			<div class="expanding-logo">
 				<span class="expanding-logo-left"></span>
-				<span class="expanding-logo-image"><a class="image-link" href="http://rcchometeaching.appspot.com"></a></span>
+				<span class="expanding-logo-image">
+                    <a class="image-link" href="http://rcchometeaching.appspot.com"></a>
+                    <br/>
+                    <span class="logo-text">Elders Quorum</span>
+                </span>
 				<span class="expanding-logo-right">
 					<g:HorizontalPanel ui:field="menuButtonsPanel" styleName="menu-button-panel">
 						<g:Anchor ui:field="visitsLink" href="#home:visits" styleName="button left">Report Visits</g:Anchor>
