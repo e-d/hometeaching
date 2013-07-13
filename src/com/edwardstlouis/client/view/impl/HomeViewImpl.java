@@ -83,7 +83,7 @@ public class HomeViewImpl extends Composite implements HomeView {
 		    stopWaitSpinner();
 			sectionName.add(new HTML("Contact the Elders Quorumn Presidency"));
 			contentHolder.add(new HTML("<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
-			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
+			        "<br/><b>Ted Davis</b> (First Counselor)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
 			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
 			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>" +
 			        "<br/><b>Ed St. Louis</b> (President)<br/>801-718-1086 <a href='mailto:ed.st.louis@gmail.com'>ed.st.louis@gmail.com</a><br/>"));
